@@ -63,7 +63,6 @@ const WeatherOutput: FC<WeatherProps> = ({ data, city }) => {
         }
       }
     }
-    console.log(city);
   }, [data, img, city]);
 
   const temperatureSelector = (e: React.MouseEvent) => {

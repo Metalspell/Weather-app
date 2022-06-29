@@ -150,10 +150,6 @@
   white-space: pre-wrap;
 }
 
-.fuck {
-  background-color: blue;
-}
-
 @media (max-width: 1024px) {
 
   .typeOfTemp h1,

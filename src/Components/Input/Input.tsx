@@ -33,6 +33,7 @@ const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
       ?
       navigator.geolocation.getCurrentPosition(showPosition)
       :
+      console.log('Somthing wrong!')
       dispatch(setAlert("Your location isn't available to us and we cannot show weather data"));
 
     function showPosition(positions: any) {
