@@ -1,4 +1,4 @@
-import React, { FC, useState, FormEvent, useEffect } from 'react';
+import React, { FC, useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { InputProps } from '../../Redux-store/types';
 import style from './Input.module.css';
