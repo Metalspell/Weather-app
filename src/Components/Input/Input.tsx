@@ -9,39 +9,37 @@ import { getCity } from '../../Redux-store/Actions/listOfCitiesActions';
 const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
-  const [cityFromPresentLocation, setCityFromPresentLocation] = useState<any | null>(null);
 
   const formInput = (e: FormEvent<HTMLInputElement>) => {
     setCity(e.currentTarget.value);
   }
 
   const RefreshData = () => {
+    console.log(cityData);
     for (let i = 0; i < cityData.length; i++) {
       dispatch(clearWeatherArray(cityData.length));
       dispatch(getWeather(`q=${cityData[i].city}`));
     }
   }
 
-  useEffect(() => {
-    if (cityFromPresentLocation && weatherData.length !== 0) {
-      dispatch(getCity(weatherData[weatherData.length - 1].name));
-    }
-  }, [weatherData, cityFromPresentLocation, dispatch]);
-
   const myLocation = () => {
-    navigator.geolocation
-      ?
-      navigator.geolocation.getCurrentPosition(showPosition)
-      :
-      console.log('Somthing wrong!')
-      dispatch(setAlert("Your location isn't available to us and we cannot show weather data"));
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, error);
+    }
 
+    function error() {
+      dispatch(setAlert("Your location isn't available to us and we cannot show weather data"));
+    }
     function showPosition(positions: any) {
       const lat = positions.coords.latitude;
       const long = positions.coords.longitude;
       dispatch(getWeather(`lat=${lat}&lon=${long}`));
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${'b078a7d81849e7d2b796924e54583a40'}`)
+        .then((response) => response.json())
+        .then((responseJson) => {
+          dispatch(getCity(responseJson.name));
+        })
     }
-    setCityFromPresentLocation(true)
   }
 
   const submitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -55,7 +53,6 @@ const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
       dispatch(getCity(city));
     }
     setCity('');
-    setCityFromPresentLocation(false)
   }
 
   return (
