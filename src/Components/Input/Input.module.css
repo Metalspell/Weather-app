@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Briem Script STD';
+  src: url('../../Fonts/Briem/BriemScriptStd-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../../Fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+.tytle {
+  font-family: 'Briem Script STD';
+  color: #ffffff;
+  font-size: 2vw;
+}
+
+.formField {
+  margin: 1vw 0vw 2vw 0vw;
+  font-family: inherit;
+  width: 40%;
+  border: 0;
+  outline: 0;
+  font-size: 1.4vw;
+  color: white;
+  padding: 0vw 0vw 1vw 0vw;
+  background: transparent;
+  transition: border-color 0.2s;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.button {
+  background-image: linear-gradient(#F39200 0%, #E4032E 100%);
+  width: 15vw;
+  height: 3vw;
+  border-radius: 0.8vw !important;
+  cursor: pointer;
+  font-size: 1vw;
+  color: #ffffff;
+  font-family: 'Inter';
+  margin-top: 1vw;
+}
+
+.button:hover {
+  box-shadow: 1px 10px 50px -1px #e5032e !important;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonsWrapper {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .mainContainer {
+    padding: 5vw 8vw;
+  }
+
+  .tytle {
+    font-size: 4vw;
+    line-height: 6vw;
+  }
+
+  .formField {
+    margin: 3vw 0vw 4vw 0vw;
+    width: 80%;
+    font-size: 3vw;
+  }
+
+  .button {
+    width: 25vw;
+    height: 6vw;
+    font-size: 2vw;
+    margin-top: 2vw;
+    border-radius: 1.5vw !important;
+  }
+}
