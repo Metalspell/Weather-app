@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-TypeScrypt-Practice/weather-app/static/css/main.4a7be503.css",
+    "main.js": "/React-TypeScrypt-Practice/weather-app/static/js/main.2f56c064.js",
+    "static/media/Inter-VariableFont_slnt,wght.ttf": "/React-TypeScrypt-Practice/weather-app/static/media/Inter-VariableFont_slnt,wght.b4c30855aff392d7e8dc.ttf",
+    "static/media/BriemScriptStd-Bold.otf": "/React-TypeScrypt-Practice/weather-app/static/media/BriemScriptStd-Bold.9a6a5ed26962c3da506d.otf",
+    "index.html": "/React-TypeScrypt-Practice/weather-app/index.html",
+    "main.4a7be503.css.map": "/React-TypeScrypt-Practice/weather-app/static/css/main.4a7be503.css.map",
+    "main.2f56c064.js.map": "/React-TypeScrypt-Practice/weather-app/static/js/main.2f56c064.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a7be503.css",
+    "static/js/main.2f56c064.js"
+  ]
+}
