@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Weather-app/static/css/main.21d305a6.css",
-    "main.js": "/Weather-app/static/js/main.2f56c064.js",
+    "main.css": "/Weather-app/static/css/main.b0593cda.css",
+    "main.js": "/Weather-app/static/js/main.4440efe0.js",
     "static/media/Inter-VariableFont_slnt,wght.ttf": "/Weather-app/static/media/Inter-VariableFont_slnt,wght.b4c30855aff392d7e8dc.ttf",
     "static/media/BriemScriptStd-Bold.otf": "/Weather-app/static/media/BriemScriptStd-Bold.9a6a5ed26962c3da506d.otf",
     "index.html": "/Weather-app/index.html",
-    "main.21d305a6.css.map": "/Weather-app/static/css/main.21d305a6.css.map",
-    "main.2f56c064.js.map": "/Weather-app/static/js/main.2f56c064.js.map"
+    "main.b0593cda.css.map": "/Weather-app/static/css/main.b0593cda.css.map",
+    "main.4440efe0.js.map": "/Weather-app/static/js/main.4440efe0.js.map"
   },
   "entrypoints": [
-    "static/css/main.21d305a6.css",
-    "static/js/main.2f56c064.js"
+    "static/css/main.b0593cda.css",
+    "static/js/main.4440efe0.js"
   ]
 }
