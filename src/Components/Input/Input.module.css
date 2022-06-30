@@ -81,4 +81,37 @@
     margin-top: 2vw;
     border-radius: 1.5vw !important;
   }
+
+  .buttonsWrapper {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer {
+    padding: 10vw 8vw;
+  }
+
+  .tytle {
+    font-size: 6vw;
+    line-height: 8vw;
+  }
+
+  .buttonsWrapper {
+    width: 100%;
+  }
+
+  .button {
+    width: 40vw;
+    height: 10vw;
+    font-size: 3vw;
+    margin-top: 4vw;
+    border-radius: 2.5vw !important;
+  }
+
+  .formField {
+    margin: 8vw 0vw 8vw 0vw;
+    width: 100%;
+    font-size: 4vw;
+  }
 }

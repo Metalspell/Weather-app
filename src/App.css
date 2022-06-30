@@ -42,3 +42,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+@media (max-width: 480px) {
+  .App {
+    height: 100vh;
+  }
+}

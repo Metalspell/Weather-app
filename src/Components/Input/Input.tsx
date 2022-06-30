@@ -29,7 +29,7 @@ const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
     function error() {
       dispatch(setAlert("Your location isn't available to us and we cannot show weather data"));
     }
-    
+
     function showPosition(positions: any) {
       const lat = positions.coords.latitude;
       const long = positions.coords.longitude;
