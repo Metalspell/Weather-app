@@ -108,8 +108,13 @@
 
 @media (max-width: 480px) {
   .error-notify {
-    font-size: 3vw;
+    font-size: 8vw;
     margin: 5vw 0vw 5vw 0vw;
+    line-height: 14vw;
+    grid-column-start: 2;
+    grid-column-end: 12;
+    grid-row-start: 6;
+    grid-row-end: 8;
   }
 
   .modal-close-icon {
