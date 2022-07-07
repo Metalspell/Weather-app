@@ -34,10 +34,6 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
           ...state.data.slice(0, action.payload),
           ...state.data.slice(action.payload + 1)
         ],
-      }
-    case DELETE_CITY:
-      return {
-        ...state,
         cityData: [
           ...state.cityData.slice(0, action.payload),
           ...state.cityData.slice(action.payload + 1)

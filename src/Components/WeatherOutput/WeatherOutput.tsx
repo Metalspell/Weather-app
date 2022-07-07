@@ -6,7 +6,6 @@ import { RiCelsiusFill } from 'react-icons/ri';
 import { RiFahrenheitFill } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
 import { setId } from '../../Redux-store/Actions/weatherActions';
-// import { deleteCity } from '../../Redux-store/Actions/listOfCitiesActions';
 
 interface WeatherProps {
   data: WeatherData[];
