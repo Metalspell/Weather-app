@@ -1,6 +1,6 @@
 
 
-import { WeatherState, WeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR, DELETE_WEATHER, TOTAL_DELETE_WEATHER, GET_CITY, DELETE_CITY } from "../types";
+import { WeatherState, WeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR, DELETE_WEATHER, TOTAL_DELETE_WEATHER, GET_CITY } from "../types";
 
 const initialState: WeatherState = {
   data: [],
