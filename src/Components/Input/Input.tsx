@@ -3,21 +3,29 @@ import { useDispatch } from 'react-redux';
 import { InputProps } from '../../Redux-store/types';
 import style from './Input.module.css';
 import { setAlert } from '../../Redux-store/Actions/alertActions';
-import { getWeather, setLoading, clearWeatherArray } from '../../Redux-store/Actions/weatherActions';
-import { getCity } from '../../Redux-store/Actions/listOfCitiesActions';
+import { getWeather, setLoading, clearWeatherArray, getWeatherWhithOutCityList } from '../../Redux-store/Actions/weatherActions';
 
-const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
+const Input: FC<InputProps> = ({ title, cityData, weatherData }) => {
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
+  const [cityFromCurrentLocation, setCityFromCurrentLocation] = useState('');
+
 
   const formInput = (e: FormEvent<HTMLInputElement>) => {
-    setCity(e.currentTarget.value);
+    setCity(e.currentTarget.value.charAt(0).toUpperCase() + e.currentTarget.value.slice(1));
   }
 
   const RefreshData = () => {
-    for (let i = 0; i < cityData.length; i++) {
-      dispatch(clearWeatherArray(cityData.length));
-      dispatch(getWeather(`q=${cityData[i].city}`));
+    if (cityData.length === 0) {
+      dispatch(setAlert("You must enter at least one city"));
+    } else {
+      for (let i = 0; i < cityData.length; i++) {
+        dispatch(clearWeatherArray());
+      }
+      for (let i = 0; i < cityData.length; i++) {
+        dispatch(setLoading());
+        dispatch(getWeatherWhithOutCityList(`q=${cityData[i].city}`));
+      }
     }
   }
 
@@ -33,12 +41,28 @@ const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
     function showPosition(positions: any) {
       const lat = positions.coords.latitude;
       const long = positions.coords.longitude;
-      dispatch(getWeather(`lat=${lat}&lon=${long}`));
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${'b078a7d81849e7d2b796924e54583a40'}`)
         .then((response) => response.json())
         .then((responseJson) => {
-          dispatch(getCity(responseJson.name));
+          (async function () {
+            await setCityFromCurrentLocation(responseJson.name);
+          })();
         })
+      if (weatherData.length === 0) {
+        dispatch(setLoading());
+        dispatch(getWeather(`lat=${lat}&lon=${long}`));
+      } else {
+        let dublicate = false;
+        for (let i = 0; i < weatherData.length; i++) {
+          if (weatherData[i].name === cityFromCurrentLocation) {
+            dispatch(setAlert("You already have this city on your list"));
+            dublicate = true;
+          }
+        }
+        if (!dublicate) {
+          dispatch(getWeather(`lat=${lat}&lon=${long}`));
+        }
+      }
     }
   }
 
@@ -47,10 +71,22 @@ const Input: FC<InputProps> = ({ title, cityData, error, weatherData }) => {
     if (city.trim() === '') {
       return dispatch(setAlert('City is required!'));
     }
-    dispatch(setLoading());
-    dispatch(getWeather(`q=${city}`));
-    if (error === '') {
-      dispatch(getCity(city));
+    if (weatherData.length === 0) {
+      dispatch(setLoading());
+      dispatch(getWeather(`q=${city.trim()}`));
+    }
+    if (weatherData.length !== 0) {
+      let dublicate = false;
+      for (let i = 0; i < weatherData.length; i++) {
+        if (weatherData[i].name === city) {
+          dispatch(setAlert("You already have this city on your list"));
+          dublicate = true;
+        }
+      }
+      if (!dublicate) {
+        dispatch(setLoading());
+        dispatch(getWeather(`q=${city.trim()}`));
+      }
     }
     setCity('');
   }

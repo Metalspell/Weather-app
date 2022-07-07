@@ -1,12 +1,13 @@
 
 
-import { WeatherState, WeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR, DELETE_WEATHER, TOTAL_DELETE_WEATHER } from "../types";
+import { WeatherState, WeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR, DELETE_WEATHER, TOTAL_DELETE_WEATHER, GET_CITY, DELETE_CITY } from "../types";
 
 const initialState: WeatherState = {
   data: [],
   loading: false,
   error: '',
-  id: ''
+  id: '',
+  cityData: []
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -19,6 +20,13 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
         loading: false,
         error: ''
       }
+    case GET_CITY:
+      return {
+        ...state,
+        cityData: [...state.cityData, action.payload],
+        loading: false,
+        error: ''
+      }
     case DELETE_WEATHER:
       return {
         ...state,
@@ -27,12 +35,18 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
           ...state.data.slice(action.payload + 1)
         ],
       }
+    case DELETE_CITY:
+      return {
+        ...state,
+        cityData: [
+          ...state.cityData.slice(0, action.payload),
+          ...state.cityData.slice(action.payload + 1)
+        ],
+      }
     case TOTAL_DELETE_WEATHER:
       return {
         ...state,
-        data: [
-          ...state.data.splice(0, action.payload),
-        ],
+        data: [],
       }
     case SET_LOADING:
       return {

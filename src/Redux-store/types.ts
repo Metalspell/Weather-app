@@ -60,7 +60,6 @@ export interface CityData {
 export interface InputProps {
   title: string;
   cityData: CityData[];
-  error: string;
   weatherData: WeatherData[];
 }
 
@@ -79,6 +78,7 @@ export interface WeatherState {
   loading: boolean;
   error: string;
   id: string;
+  cityData: CityData[] | [];
 }
 
 export interface CityListState {
@@ -119,8 +119,7 @@ interface SetErrorAction {
   payload: string;
 }
 
-export type WeatherAction = GetWeatherAction | DeleteWeatherAction | TotalDeleteWeatherAction | SetLoadingAction | SetErrorAction;
-export type CityListAction = GetCityListAction | DeleteCityListAction;
+export type WeatherAction = GetWeatherAction | GetCityListAction| DeleteWeatherAction | TotalDeleteWeatherAction | SetLoadingAction | SetErrorAction| DeleteCityListAction;
 
 export interface AlertAction {
   type: typeof SET_ALERT;

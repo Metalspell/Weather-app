@@ -15,15 +15,15 @@ const queryClient = new QueryClient()
 const App: FC = () => {
   const dispatch = useDispatch();
   const weatherData = useSelector((state: RootState) => state.weather.data);
-  const cityData = useSelector((state: RootState) => state.cityList.data);
+  const cityData = useSelector((state: RootState) => state.weather.cityData);
   const loading = useSelector((state: RootState) => state.weather.loading);
   const error = useSelector((state: RootState) => state.weather.error);
   const alertMsg = useSelector((state: RootState) => state.alert.message);
 
   return (
     <div className="App">
-      <Input error={error} cityData={cityData} weatherData={weatherData} title="Enter city name and press search button or use automatic location detection" />
-      {loading ? <h2 className="loading">Loading...</h2> : weatherData && <WeatherOutput data={weatherData} city={cityData} />}
+      <Input cityData={cityData} weatherData={weatherData} title="Enter city name and press search button or use automatic location detection" />
+      {loading ? <h2 className="loading">Loading...</h2> : weatherData && <WeatherOutput data={weatherData} />}
 
       {alertMsg &&
         <QueryClientProvider client={queryClient}>
