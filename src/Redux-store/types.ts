@@ -1,6 +1,6 @@
 export const GET_WEATHER = 'GET_WEATHER';
 export const DELETE_WEATHER = 'DELETE_WEATHER';
-export const TOTAL_DELETE_WEATHER = 'DELETE_WEATHER';
+export const TOTAL_DELETE_WEATHER = 'TOTAL_DELETE_WEATHER';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_ALERT = 'SET_ALERT';
@@ -107,7 +107,6 @@ interface DeleteWeatherAction {
 
 interface TotalDeleteWeatherAction {
   type: typeof TOTAL_DELETE_WEATHER;
-  payload: number;
 }
 
 interface SetLoadingAction {

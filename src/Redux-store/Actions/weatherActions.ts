@@ -10,7 +10,7 @@ import {
   SET_ERROR,
   TOTAL_DELETE_WEATHER,
   GET_CITY, 
-  CityData
+  CityData,
 } from '../types';
 
 export const getWeather = (city: string): ThunkAction<void, RootState, null, WeatherAction> => {
@@ -80,13 +80,12 @@ export const setError = (): WeatherAction => {
 export const setId = (id: number): WeatherAction => {
   return {
     type: DELETE_WEATHER,
-    payload: 0
+    payload: id
   }
 }
 
 export const clearWeatherArray= (): WeatherAction => {
   return {
     type: TOTAL_DELETE_WEATHER,
-    payload: 0
   }
 }

@@ -32,6 +32,7 @@ const WeatherOutput: FC<WeatherProps> = ({ data }) => {
 
   const submitHandler = (e: React.MouseEvent<SVGAElement>) => {
     e.preventDefault();
+    console.log(+e.currentTarget.id)
     dispatch(setId(+e.currentTarget.id));
   }
 

@@ -42,7 +42,7 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
     case TOTAL_DELETE_WEATHER:
       return {
         ...state,
-        data: [],
+        data: []
       }
     case SET_LOADING:
       return {

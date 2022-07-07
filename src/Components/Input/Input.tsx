@@ -93,7 +93,8 @@ const Input: FC<InputProps> = ({ title, cityData, weatherData }) => {
 
   useEffect(() => {
     console.log(cityData);
-  }, [cityData]);
+    console.log(weatherData);
+  }, [cityData, weatherData]);
 
   return (
     <div className={style.mainContainer}>
