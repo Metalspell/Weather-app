@@ -58,7 +58,7 @@
 .cityAndDate {
   display: flex;
   flex-direction: column;
-  padding: 0vw 1vw;
+  padding: 1vw 1vw;
 }
 
 .title,
